@@ -1,0 +1,30 @@
+{% extends 'Frontend/base.html.twig' %}
+
+{% block seoheader %}
+    {% include 'Frontend/Render/_seoproduit.html.twig' with {'produit_selected':produit_selected} %}
+{% endblock %}
+
+{% block switcher %}
+
+{% endblock switcher %}
+
+{% block body %}
+
+	<div class="content_produit">
+		<div class="container">
+
+			{% include 'Frontend/Produits/_chemin_produit_cat.html.twig' %}
+			
+			{% include 'Frontend/Produits/_description_produit.html.twig' %}
+
+			{{ render(path('contact_produit',{'slug':produit_selected.slug})) }}
+
+			{% include 'Frontend/Produits/_specifications_medias_produit.html.twig' %}
+
+			{% include 'Frontend/Produits/_produit_interesser.html.twig' %}
+
+		</div>
+	</div>
+	
+
+{% endblock body %}

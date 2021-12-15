@@ -1,0 +1,40 @@
+<div class="evenement_home">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6">
+				<div class="img_evenement_home">
+					<img class="img-fluid" src="{{ asset('assets/images/img_event_principale.jpg')}}" alt="Evenement">
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6">
+				<div class="text_evenement_home">
+					<p>
+						Votre événement a besoin d’une touche unique ? On s’en occupe de A à Z.
+					</p>
+					<a href="{{ path('contact_link') }}">Contactez-nous</a>
+				</div>
+			</div>
+		</div>
+		{% if list_evenements is not empty %}
+			<div class="row row_slider_evenement">
+				<div class="col-lg-1">
+					<h2 class="titre_slider_evenement">Evenements</h2>
+				</div>
+				<div class="col-lg-11">
+					<div class="slider_evenement owl-carousel owl-theme" id="slider_evenement">
+
+						{% for event in list_evenements %}
+							<div class="item_slider_evenement">
+								<a href="{{ path('evenement_selected',{'slug':event.slug}) }}">
+									<img class="img-fluid" src="{{ asset (vich_uploader_asset(event,'imageFile')) }}" alt="{{event.titre}}">
+								</a>
+								<h4><a href="{{ path('evenement_selected',{'slug':event.slug}) }}">{{event.titre}}</a></h4>
+							</div>
+						{% endfor %}
+
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+</div>

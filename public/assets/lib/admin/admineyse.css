@@ -1,0 +1,18 @@
+
+ 
+.form-widget textarea.form-control{
+    max-width: 100%;
+} 
+.ea-new-Projet .form-widget,
+.ea-edit-Projet .form-widget{
+    flex: 0 0 80%;
+}
+
+
+.field-collection.form-group.processed .col-form-label .form-widget,
+.ea-new-Projet .form-widget, .ea-edit-Projet .form-widget{
+    flex: 1 !important;
+} 
+.field-collection.form-group.processed .col-form-label{
+    display: none;
+}

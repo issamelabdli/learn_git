@@ -1,0 +1,19 @@
+<title>{{produit_selected.titre}}</title>
+
+<meta name="title" content="{{produit_selected.seoTitre}}" />
+<meta name="description" content="{{produit_selected.seoDescription}}" />
+<meta name="keywords" content="{{produit_selected.seoKeywords}}" />  
+
+<meta property="og:locale" content="fr_FR"/>
+<meta property="og:site_name" content="https://"/>
+<meta property="og:title" content="{{produit_selected.seoTitre}}"/>
+<meta property="og:url" content="{#{ absolute_url(path('produit_selected',{'cat_slug':produit_selected.sousCategorie.categorie.slug,'souscat_slug':produit_selected.sousCategorie.slug,'slug':produit_selected.slug})) }#}"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="{{produit_selected.seoDescription}}"/>
+<meta property="og:image" content="{% if produit_selected.medias is not empty %}{{ absolute_url(asset(vich_uploader_asset(produit_selected.medias|first,'imageFile')))}}{% endif %}"/> 
+ 
+<meta name="twitter:title" content="{{produit_selected.seoTitre}}"/>
+<meta name="twitter:url" content="https://"/>
+<meta name="twitter:description" content="{{produit_selected.seoDescription}}"/>
+<meta name="twitter:card" content="summary_large_image"/>
+

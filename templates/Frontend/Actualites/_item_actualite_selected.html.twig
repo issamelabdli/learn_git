@@ -1,0 +1,23 @@
+<div class="content_actu_selected">
+	<div class="container">
+		{% include 'Frontend/Actualites/_chemin_actualite.html.twig' %}
+		<div class="row">
+			<div class="col-lg-1 col-md-1"></div>
+			<div class="col-lg-10 col-md-11">
+				<div class="text_actu_selected">
+
+					<h2>{{actualite_selected.titre}}</h2>
+					<label>{{actualite_selected.dateFormat}}</label>
+
+					{% if actualite_selected.image is not empty %}
+						<img class="img-fluid" src="{{ asset (vich_uploader_asset(actualite_selected,'imageFile')) }}" alt="{{actualite_selected.titre}}">
+					{% endif %}
+
+					{{actualite_selected.contenu|raw}}
+
+				</div>
+			</div>
+			<div class="col-lg-1"></div>
+		</div>
+	</div>
+</div>

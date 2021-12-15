@@ -1,0 +1,23 @@
+{% extends 'Frontend/base.html.twig' %}
+
+{% block seoheader %}
+    {% include 'Frontend/Render/_seopage.html.twig' with {'page_selected':page_selected} %}
+{% endblock %}
+
+{% block switcher %}
+	{% include 'Frontend/Render/_switcher_home.html.twig' with {'page_selected':page_selected} %}
+{% endblock switcher %}
+
+{% block body %}
+
+	{% include 'Frontend/Render/_categorie_home.html.twig' %}
+
+	{% include 'Frontend/Render/_block_location_home.html.twig' %}
+
+	{% include 'Frontend/Render/_evenement_home.html.twig' %}
+
+	{% include 'Frontend/Render/_actualites_home.html.twig' %}
+	
+	{% include 'Frontend/Render/_mediatheque_home.html.twig' %}
+
+{% endblock body %}

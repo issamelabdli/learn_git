@@ -1,0 +1,58 @@
+<div class="categories_home content_catalogue">
+	<div class="container">
+
+		{% if list_categories is not empty %}
+
+            {% set collectionSize = 0 %}
+            {% for categorie in list_categories %} 
+            {% set collectionSize = collectionSize + 1 %}
+            {% endfor %}
+
+
+            {% set columnCount    = 4 %}
+            {% set i              = 0 %} 
+                 
+            {% for categorie in list_categories %}
+
+               
+            {% if i % columnCount == 0  %}
+            <div class="row">
+            {% endif %} 
+
+            {% set i = i + 1 %}  
+
+            	<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="item_categories_home">
+						<a href="{{ path('categorie_selected',{'slug':categorie.slug}) }}">
+                            <img class="img-fluid img_categorie" src="{{ asset (vich_uploader_asset(categorie,'imageFile')) }}" alt="{{categorie.titre}}">
+                            <!--img class="img-fluid img_categorie_hover" src="{{ asset (vich_uploader_asset(categorie,'image2File')) }}" alt="{{categorie.titre}}"-->
+                        </a>
+						<h3><a href="{{ path('categorie_selected',{'slug':categorie.slug}) }}">{{categorie.titre}}</a></h3>
+                        <ul>
+                            {% set liste_sous_cat = Sous_categorie_list(categorie.slug) %}
+                            {% for item in liste_sous_cat %}
+                                <li>
+                                    <a href="{{ path('sous_categorie_selected',{'cat_slug':categorie.slug,'slug':item.slug}) }}">
+                                        {{item.titre}}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+					</div>
+				</div>
+
+            {%  if i % columnCount == 0 or i == collectionSize %}
+                </div>
+            {% endif %}
+
+            {% endfor %}
+ 
+
+            {% else %}
+                <p>
+                	{{"Il n'y a aucune categorie pour l'instant."|trans}}
+                </p>
+        {% endif %}
+
+	</div>
+</div>

@@ -1,0 +1,17 @@
+{% extends 'Frontend/base.html.twig' %}
+
+{% block seoheader %}
+    {% include 'Frontend/Render/_seoactualite.html.twig' with {'actualite_selected':actualite_selected} %}
+{% endblock %}
+
+{% block switcher %}
+	{% include 'Frontend/Render/_switcher_pages.html.twig' with {'page_selected':page_selected} %}
+{% endblock switcher %}
+
+{% block body %}
+
+	{% include 'Frontend/Actualites/_item_actualite_selected.html.twig' %}
+
+
+{% endblock body %}
+

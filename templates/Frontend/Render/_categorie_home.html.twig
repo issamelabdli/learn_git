@@ -1,0 +1,53 @@
+<div class="categories_home">
+	<div class="container">
+		<h2 class="titre_categories_home">Catégories</h2>
+
+		{% if list_categories is not empty %}
+
+            {% set collectionSize = 0 %}
+            {% for categorie in list_categories %} 
+            {% set collectionSize = collectionSize + 1 %}
+            {% endfor %}
+
+
+            {% set columnCount    = 4 %}
+            {% set i              = 0 %} 
+                 
+            {% for categorie in list_categories %}
+
+               
+            {% if i % columnCount == 0  %}
+            <div class="row">
+            {% endif %} 
+
+            {% set i = i + 1 %}  
+
+            	<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="item_categories_home">
+						<a href="{{ path('categorie_selected',{'slug':categorie.slug}) }}">
+                            {% if categorie.image is not empty %}
+                                <img class="img-fluid img_categorie" src="{{ asset (vich_uploader_asset(categorie,'imageFile')) }}" alt="{{categorie.titre}}">
+                            {% endif %}
+                            {% if categorie.image2 is not empty %}
+                                <img class="img-fluid img_categorie_hover" src="{{ asset (vich_uploader_asset(categorie,'image2File')) }}" alt="{{categorie.titre}}">
+                            {% endif %}
+                        </a>
+						<h3><a href="{{ path('categorie_selected',{'slug':categorie.slug}) }}">{{categorie.titre}}</a></h3>
+					</div>
+				</div>
+
+            {%  if i % columnCount == 0 or i == collectionSize %}
+                </div>
+            {% endif %}
+
+            {% endfor %}
+ 
+
+        {% else %}
+            <p>
+            	{{"Il n'y a aucune categorie pour l'instant."|trans}}
+            </p>
+        {% endif %}
+
+	</div>
+</div>

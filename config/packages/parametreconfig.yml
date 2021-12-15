@@ -1,0 +1,16 @@
+parameters:
+    facebook: 'https://web.facebook.com/'
+    youtube: 'https://www.youtube.com/'
+    instagram: 'https://www.instagram.com/'
+    link_wathsap: '#'
+    link_telephone: '05 22 23 10 06'
+    front_nb_articles_par_page: '3'
+    password: 'yH6Yp6HRuD&g'
+    mail_envoie: no-reply@diarysakane.ma
+    mail_reception: issam@elevenmedia.ma
+    mail_object: 'Site web - Diary Sakane'
+    path_config_upload: uploads/config
+    logo_header: logo.png
+    favicon: favicon.ico
+twig:
+    globals: { facebook: 'https://web.facebook.com/', youtube: 'https://www.youtube.com/', instagram: 'https://www.instagram.com/', link_wathsap: '#', link_telephone: '05 22 23 10 06', front_nb_articles_par_page: '3', password: 'yH6Yp6HRuD&g', mail_envoie: no-reply@diarysakane.ma, mail_reception: issam@elevenmedia.ma, mail_object: 'Site web - Diary Sakane', path_config_upload: uploads/config, logo_header: logo.png, favicon: favicon.ico }

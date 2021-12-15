@@ -1,0 +1,127 @@
+{% extends 'Frontend/base.html.twig' %} 
+
+{% block seoheader %}
+    {% include 'Frontend/Render/_seopage.html.twig' with {'page_selected':page_selected} %}
+{% endblock %}
+
+{% block switcher %}
+    {% include 'Frontend/Render/_switcher_pages.html.twig' with {'page_selected':page_selected} %}
+{% endblock %} 
+
+
+{% block body %}
+
+	<div class="content_pages content_contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-1 col-md-1"></div>
+				<div class="col-lg-6 col-md-11">
+
+					{% for flashMessage in app.session.flashbag.get('notice') %}
+                        <div class="alert alert-success">
+                            <button type="button" class="close_contact" data-bs-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            {{ flashMessage|trans }}
+                        </div>
+                    {% endfor %}
+
+                    {% for flashMessage in app.session.flashbag.get('notice_error') %}
+                        <div class="alert alert-danger">
+                            <button type="button" class="close_contact" data-bs-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            {{ flashMessage|trans }}
+                        </div>
+                    {% endfor %}
+
+					<form class="form_contact" id="form_contact" action="{{ path('contact_link') }}" method="POST">
+						<div class="text_input">
+							{{ form_widget(form.nomcomplet,{'attr':{'placeholder':'Nom complet'}}) }}
+						</div>
+						<div class="text_input">
+							{{ form_widget(form.email,{'attr':{'placeholder':'Votre adresse email'}}) }}
+						</div>
+						<div class="text_input">
+							{{ form_widget(form.message,{'attr':{'placeholder':'Votre message...'}}) }}
+						</div>
+						<div class="button_submit">
+							<button type="submit" name="submit">Envoyer</button>
+							{{ form_rest(form) }}
+						</div>
+                	</form>
+				</div>
+				<div class="col-lg-5">
+					{#{ render(path('blockstatique',{'slug':'block_contact_right'})) }#}
+					<div class="text_right_contact">
+						<div class="item_text_right_contact">
+							<h2>Adresse</h2>
+							<h3>Casablanca</h3>
+						</div>
+						<div class="item_text_right_contact">
+							<h2>Téléphone</h2>
+							<h3>+212 6 62 48 76 55</h3>
+						</div>
+						<div class="item_text_right_contact">
+							<h2>Email</h2>
+							<h3>contact@boitaloc.ma</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+    <script type="text/javascript">
+
+	    $.validator.addMethod("email", function(value, element) {
+	        return this.optional(element) || /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/i.test(value);
+	    }, "Adresse e-mail non valide: Veuillez entrer une adresse e-mail valide.");
+	    $.validator.addMethod("phone", function(value, element) {
+	        return this.optional(element) || /^[0-9]{10,14}$/i.test(value);
+	    }, "Format invalide. (Exemple: 0611111111)");
+	    //$("#form_telephone").mask("06 00 00 00 00");
+
+
+	    $(document).ready(function(){
+
+	        $("#form_contact").validate({
+        	  errorElement: "samp",
+	          rules: {
+	            "contactpublic[nomcomplet]": {
+	              required: true,
+	              minlength: 3
+	            },
+	            "contactpublic[email]": {
+	              required: true,
+	              email: true
+	            },
+	            "contactpublic[message]":  {
+	              required: true
+	            }
+	          },
+
+	          messages: {
+	            "contactpublic[nomcomplet]": {
+	              required: "Veuillez saisir votre nom complet",
+	              minlength: "Votre nom complet pas correct"
+	            },
+
+	            "contactpublic[email]": {
+	              required: "Veuillez saisir votre email",
+	              email: "Votre email pas correct"
+	            },
+	 
+	            "contactpublic[message]": {
+	              required: "Veuillez saisir votre message",
+	            }
+
+	          }
+
+	        });  
+
+	    });
+	</script>
+ 
+{% endblock body %}

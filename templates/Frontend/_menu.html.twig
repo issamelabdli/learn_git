@@ -1,0 +1,29 @@
+<nav>
+	<!--div class="lang_selected">
+		<label>{{'Langue'|trans}}</label>
+		<ul>
+			<li class="active"><a href="#">{{'Fr'|trans}}</a><samp>/</samp></li>
+			<li><a href="#">{{'Ar'|trans}}</a></li>
+		</ul>
+	</div-->
+	<ul class="menu_ul">
+		<li><a href="{{ path('homepage') }}">{{'Accueil'|trans}}</a></li>
+		<li><a href="{{ path('sommes_nous') }}">{{'Qui sommes-nous ?'|trans}}</a></li>
+		<li><a href="{{ path('nos_projets') }}">{{'Nos Projet'|trans}}s</a></li>
+		<li><a href="{{ path('actualites') }}">{{'Actualités'|trans}}</a></li>
+		<li><a href="{{ path('contact_link') }}">{{'Contact'|trans}}</a></li>
+	</ul>
+	<div class="social_media_header">
+		<ul>
+			<li>{{'Retrouvez-nous sur'|trans}}</li>
+			<li><a href="{{valeurkey('facebook')}}" target="blank"><img src="{{ asset('assets/images/facebook.png') }}"></a></li>
+			<li><a href="{{valeurkey('instagram')}}" target="blank"><img src="{{ asset('assets/images/instagram.png') }}"></a></li>
+			<li><a href="{{valeurkey('youtube')}}" target="blank"><img src="{{ asset('assets/images/youtube.png') }}"></a></li>
+		</ul>
+	</div>
+	<div class="sub_menu_header">
+		<li><a href="#">{{'FAQ'|trans}}</a><samp>/</samp></li>
+		<li><a href="#">{{'Mentions Légales'|trans}}</a><samp>/</samp></li>
+		<li><a href="#">{{'Guide d’Achat'|trans}}</a></li>
+	</div>
+</nav>

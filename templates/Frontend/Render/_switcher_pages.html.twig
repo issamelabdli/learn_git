@@ -1,0 +1,19 @@
+<div class="{% if page_selected.slug == 'mediatheque' %}switcher_mediatheque{% else %} switcher_contact{% endif %} switcher">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-1 col-md-1"></div>
+			<div class="col-lg-10 col-md-10">
+				<div class="img_switcher">
+					<img class="img-fluid" src="{{ asset (vich_uploader_asset(page_selected,'imageFile')) }}" alt="{{page_selected.titre}}">
+					<div class="text_switcher">
+						<div>
+							<a href="{{ path('homepage') }}">Revenir à la page d’accueil</a>
+							<h1>{{page_selected.titre}}</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-1"></div>
+		</div>
+	</div>
+</div>

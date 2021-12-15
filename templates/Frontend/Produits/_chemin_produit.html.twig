@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="col-lg-1 col-md-1"></div>
+	<div class="col-lg-10 col-md-10">
+		<div class="chemin_produit">
+			<ul>
+				<li><a href="{{ path('homepage') }}">Accueil</a><span>></span></li>
+				<li><a href="{{ path('catalogue') }}">Catalogue</a><span>></span></li>
+				<li><a href="{{ path('categorie_selected',{'slug':produit_selected.sousCategorie.categorie.slug}) }}">{{produit_selected.sousCategorie.categorie}}</a><span>></span></li>
+				<li><a href="{{ path('sous_categorie_selected',{'cat_slug':produit_selected.sousCategorie.categorie.slug,'slug':produit_selected.sousCategorie.slug}) }}">{{produit_selected.sousCategorie}}</a><span>></span></li>
+				<li><a href="#">{{produit_selected}}</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-lg-1 col-md-1"></div>
+</div>

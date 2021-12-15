@@ -1,0 +1,42 @@
+<div class="content_actualites">
+	<div class="container">
+		{% if list_actualites is not empty %}
+			<div class="row">
+				<div class="col-lg-1 col-md-1"></div>
+				<div class="col-lg-10 col-md-10 item_actualite">
+					{% for actu in list_actualites %}
+						<div class="row">
+							<div class="col-lg-3">
+								{% if actu.image is not empty %}
+									<a href="{{ path('actualite_selected',{'slug':actu.slug}) }}">
+										<img class="img-fluid" src="{{ asset (vich_uploader_asset(actu,'imageFile')) }}" alt="{{actu.titre}}">
+									</a>
+								{% endif %}
+							</div>
+							<div class="col-lg-7">
+								<div class="text_actualites">
+									<h2>{{actu.titre}}</h2>
+									<label>{{actu.dateFormat}}</label>
+									<p>{{actu.preview}}</p>
+								</div>
+							</div>
+							<div class="col-lg-2">
+								<div class="plus_actu">
+									<a href="{{ path('actualite_selected',{'slug':actu.slug}) }}">Lire la suite</a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+				<div class="col-lg-1 col-md-1"></div>
+			</div>
+
+		{{ include('Frontend/Render/_pagination.html.twig') }}
+
+		{% else %}
+            <p>
+            	{{"Il n'y a aucune actualité pour l'instant."|trans}}
+            </p>
+        {% endif %}
+	</div>
+</div>

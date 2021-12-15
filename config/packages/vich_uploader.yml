@@ -1,0 +1,133 @@
+# config/packages/vich_uploader.yaml
+parameters:
+    dir_upload_file: public
+    app.path.category_image: /uploads/pages 
+    app.path.page_image: /uploads/pages
+    app.path.switcher_image: /uploads/switchers
+    app.path.actualite_image: /uploads/actualite
+    app.path.image_categorie: /uploads/produits/categorie
+    app.path.image_categorie_2: /uploads/produits/categorie
+    app.path.image_souscategorie: /uploads/produits/souscategorie
+    app.path.switcher_souscategorie: /uploads/produits/souscategorie
+    app.path.image_produit: /uploads/produits/images
+    app.path.galerie_produit: /uploads/produits/galerie
+    app.path.media_produit: /uploads/produits/medias
+    app.path.image_evenement: /uploads/evenements/images
+    app.path.switcher_evenement: /uploads/evenements/switchers
+    app.path.image_client: /uploads/evenements/clients/images
+    app.path.switcher_client: /uploads/evenements/clients/switchers
+    app.path.image_galerieclient: /uploads/evenements/clients/galerie
+    app.path.image_mediatheque: /uploads/mediatheque
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        category_image:
+            uri_prefix: /uploads/pages
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/pages'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        page_image:
+            uri_prefix: /uploads/pages
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/pages'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        switcher_image:
+            uri_prefix: /uploads/switchers
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/switchers'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        actualite_image:
+            uri_prefix: /uploads/actualite
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/actualite'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        image_categorie:
+            uri_prefix: /uploads/produits/categorie
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/produits/categorie'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        image_categorie_2:
+            uri_prefix: /uploads/produits/categorie
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/produits/categorie'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        image_souscategorie:
+            uri_prefix: /uploads/produits/souscategorie
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/produits/souscategorie'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        switcher_souscategorie:
+            uri_prefix: /uploads/produits/souscategorie
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/produits/souscategorie'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        image_produit:
+            uri_prefix: /uploads/produits/images
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/produits/images'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        galerie_produit:
+            uri_prefix: /uploads/produits/galerie
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/produits/galerie'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        media_produit:
+            uri_prefix: /uploads/produits/medias
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/produits/medias'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        image_evenement:
+            uri_prefix: /uploads/evenements/images
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/evenements/images'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        switcher_evenement:
+            uri_prefix: /uploads/evenements/switchers
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/evenements/switchers'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        image_client:
+            uri_prefix: /uploads/evenements/clients/images
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/evenements/clients/images'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        switcher_client:
+            uri_prefix: /uploads/evenements/clients/switchers
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/evenements/clients/switchers'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        image_galerieclient:
+            uri_prefix: /uploads/evenements/clients/galerie
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/evenements/clients/galerie'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        image_mediatheque:
+            uri_prefix: /uploads/mediatheque
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/mediatheque'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+
+
+                
+    
+    
+    
+     

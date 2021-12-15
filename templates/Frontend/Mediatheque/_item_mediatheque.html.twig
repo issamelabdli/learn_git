@@ -1,0 +1,38 @@
+<div class="content_mediatheque">
+	<div class="container">
+
+		{% include 'Frontend/Mediatheque/_menu_mediatheque.html.twig' %}
+
+		{% if list_mediatheques is not empty %}
+
+			<div class="list_medias">
+				<div class="list_medias_grid">
+
+
+						{% for media in list_mediatheques %}
+							<div class="item_medias_grid">
+								<div class="item_medias">
+									<div class="{% if media.video is empty %}zoom_gallery{% endif %}">
+										<a href="{% if media.video is not empty %}{{media.video}}{% else %}{{ asset (vich_uploader_asset(media,'imageFile')) }}{% endif %}" class="{% if media.video is not empty %}video_source{% endif %}">
+											<img class="img-fluid" src="{{ asset (vich_uploader_asset(media,'imageFile')) }}" alt="{{media.titre}}">
+										</a>
+									</div>
+									<h5><a href="#">{{media.sousCategorie.titre}}</a></h5>
+									<h6>{{media.titre}}</h6>
+								</div>
+							</div>
+						{% endfor %}
+
+				</div>
+			</div>
+			
+		{{ include('Frontend/Render/_pagination.html.twig') }}
+
+		{% else %}
+            <p>
+            	{{"Il n'y a aucune Mediatheque pour l'instant."|trans}}
+            </p>
+        {% endif %}
+
+	</div>
+</div>

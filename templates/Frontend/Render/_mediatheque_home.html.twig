@@ -1,0 +1,31 @@
+{% if list_mediatheques is not empty %}
+	<div class="mediatheque_home">
+		<div class="container">
+			<div class="titre_mediatheque_home">
+				<h2><span>En images</span></h2>
+			</div>
+			<div class="list_medias">
+				<div class="list_medias_grid">
+					{% for media in list_mediatheques %}
+						<div class="item_medias_grid">
+							<div class="item_medias">
+								<div class="zoom_gallery">
+									<a href="{{ asset (vich_uploader_asset(media,'imageFile')) }}">
+										<img class="img-fluid" src="{{ asset (vich_uploader_asset(media,'imageFile')) }}" alt="{{media.titre}}">
+									</a>
+								</div>
+								<h5><a href="#">{{media.sousCategorie.titre}}</a></h5>
+								<h6>{{media.titre}}</h6>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="mediatheque_plus">
+				<div>
+					<a href="{{ path('mediatheque') }}">Accéder à la médiathèque</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}

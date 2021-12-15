@@ -1,0 +1,16 @@
+{% extends 'Frontend/base.html.twig' %}
+
+{% block seoheader %}
+    {% include 'Frontend/Render/_seoevenement.html.twig' with {'evenement_selected':evenement_selected} %}
+{% endblock %}
+
+{% block switcher %}
+	{% include 'Frontend/Render/_switcher_evenement.html.twig' with {'evenement_selected':evenement_selected} %}
+{% endblock switcher %}
+
+{% block body %}
+
+	{% include 'Frontend/Evenements/_item_evenement_selected.html.twig' %}
+
+
+{% endblock body %}

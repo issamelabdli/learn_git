@@ -1,0 +1,52 @@
+<div class="content_events">
+	<div class="container">
+
+		{% if list_clients is not empty %}
+
+            {% set collectionSize = 0 %}
+            {% for client in list_clients %} 
+            {% set collectionSize = collectionSize + 1 %}
+            {% endfor %}
+
+
+            {% set columnCount    = 2 %}
+            {% set i              = 0 %} 
+                 
+            {% for client in list_clients %}
+
+               
+            {% if i % columnCount == 0  %}
+            <div class="row">
+            {% endif %} 
+
+            {% set i = i + 1 %}  
+
+            	<div class="col-lg-6 col-md-6">
+					<div class="item_event_selected">
+						<a href="{{ path('client_selected',{'event_slug':evenement_selected.slug,'slug':client.slug}) }}">
+							<img class="img-fluid" src="{{ asset (vich_uploader_asset(client,'imageFile')) }}" alt="{{client.titre}}">
+						</a>
+						<h2>
+                            <a href="{{ path('client_selected',{'event_slug':evenement_selected.slug,'slug':client.slug}) }}">
+                                {{client.titre}}
+                            </a>
+                        </h2>
+					</div>
+				</div>
+
+            {%  if i % columnCount == 0 or i == collectionSize %}
+                </div>
+            {% endif %}
+
+            {% endfor %}
+ 
+
+        {% else %}
+            <p>
+            	{{"Il n'y a aucune client pour l'instant."|trans}}
+            </p>
+        {% endif %}
+
+
+	</div>
+</div>

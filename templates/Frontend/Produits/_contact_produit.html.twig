@@ -1,0 +1,116 @@
+<div class="content_contact_produit">
+	<div class="container">
+		<form class="contact_produit" id="contact_produit" action="{{ path('contact_produit',{'slug':produit_selected.slug}) }}" method="POST">
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-5 col-md-6">
+					<div class="text_input">
+						{{ form_widget(form.nomcomplet,{'attr':{'placeholder':'Nom complet'}}) }}
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-6">
+					<div class="text_input">
+						{{ form_widget(form.email,{'attr':{'placeholder':'Votre adresse email'}}) }}
+					</div>
+				</div>
+				<div class="col-lg-1"></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-5 col-md-6">
+					<div class="text_input">
+						{{ form_widget(form.telephone,{'attr':{'placeholder':'Votre Téléphone'}}) }}
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-6">
+					<div class="text_input">
+						{{ form_widget(form.message,{'attr':{'placeholder':'Votre message...'}}) }}
+					</div>
+				</div>
+				<div class="col-lg-1"></div>
+			</div>
+			<div class="button_submit">
+				<button type="submit" name="submit">Envoyer</button>
+				{{ form_rest(form) }}
+			</div>
+    	</form>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+    $.validator.addMethod("email", function(value, element) {
+        return this.optional(element) || /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/i.test(value);
+    }, "Adresse e-mail non valide: Veuillez entrer une adresse e-mail valide.");
+    $.validator.addMethod("phone", function(value, element) {
+        return this.optional(element) || /^[0-9]{10,14}$/i.test(value);
+    }, "Format invalide. (Exemple: 0611111111)");
+    //$("#form_telephone").mask("06 00 00 00 00");
+
+
+    $(document).ready(function(){
+
+        $("#contact_produit").validate({
+			errorElement: "samp",
+			rules: {
+				"contactproduit[nomcomplet]": {
+				  required: true,
+				  minlength: 3
+				},
+				"contactproduit[email]": {
+				  required: true,
+				  email: true
+				},
+				"contactproduit[telephone]": {
+				  required: true,
+				  phone: true
+				},
+				"contactproduit[message]":  {
+				  required: true
+				}
+			},
+
+			messages: {
+				"contactproduit[nomcomplet]": {
+				  required: "Veuillez saisir votre nom complet",
+				  minlength: "Votre nom complet pas correct"
+				},
+
+				"contactproduit[email]": {
+				  required: "Veuillez saisir votre email",
+				  email: "Votre email pas correct"
+				},
+
+				"contactproduit[telephone]": {
+				  required: "Veuillez saisir Votre Téléphone",
+				  phone: "Votre Téléphone pas correct"
+				},
+
+				"contactproduit[message]": {
+				  required: "Veuillez saisir votre message",
+				}
+
+			},
+
+			submitHandler: function(form) {
+
+				$.post($('#contact_produit').attr('action'), $('#contact_produit').serialize(), function(response) {
+
+				if(response.type == 'success'){
+
+				    $('.contact_produit').html('<div class="alert alert-success"><p>'+response.text+'</p></div>');
+
+				}else{
+
+				} 
+
+			}, 'json');
+
+			return false;
+			}
+
+        });  
+
+    });
+</script>

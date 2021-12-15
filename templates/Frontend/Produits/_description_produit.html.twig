@@ -1,0 +1,30 @@
+<div class="row row_description">
+	<div class="col-lg-1 col-md-1"></div>
+	<div class="col-lg-5 col-md-10">
+		<div class="img_details_produit">
+			{% if produit_selected.medias is not empty %}
+				<div class="owl-carousel owl-theme" id="slider_media_produit">
+					{% for media in produit_selected.medias %}
+						<div>
+							{% if media.image is not empty %}
+								<img class="img-fluid" src="{{ asset (vich_uploader_asset(media,'imageFile')) }}" alt="{{media.titre}}">
+							{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="text_details_produit">
+			<label class="reference">{{produit_selected.reference}}</label>
+			<h1>{{produit_selected.titre}}</h1>
+			{{produit_selected.contenu|raw}}
+			<label class="dimensions">Dimensions</label>
+			<span>{{produit_selected.dimensions}}</span>
+			<div class="demande_devis_link">
+				<a href="#">Demander un devis</a>
+			</div>
+		</div>
+	</div>
+</div>

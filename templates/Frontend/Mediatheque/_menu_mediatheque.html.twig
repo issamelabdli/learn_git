@@ -1,0 +1,33 @@
+<div class="filter_media">
+	<h2>Filtrer par</h2>
+	<div class="filter_media_change">
+		<div class="select_filter">
+			<select name="sous-categorie" id="sous-categorie">
+				<option value="{{ path('mediatheque') }}">Sous-catégorie</option>
+				{% for item in list_sous_categories %}
+					<option value="{{ path('mediatheque') }}?sous-categorie={{item.slug}}">{{item.titre}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="select_filter">
+			<select name="evenement" id="event">
+				<option value="{{ path('mediatheque') }}">Type d'événement</option>
+				{% for item in list_evenements %}
+					<option value="{{ path('mediatheque') }}?evenement={{item.slug}}">{{item.titre}}</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+	$('#sous-categorie').on('change',function(){
+		window.location = $(this).val();
+	});
+
+	$('#event').on('change',function(){
+		window.location = $(this).val();
+	});
+	
+</script>

@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="col-lg-6">
+		<div class="specifications">
+			<h2>Spécifications</h2>
+			<ul>
+				{% for specific in produit_selected.specifications %}
+					<li>
+						<label class="spec_nom">{{specific.titre}}</label>
+						<label class="spec_valeur">{{specific.valeur}}</label>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		{% if produit_selected.galeries is not empty %}
+			<div class="slider_galerie_produit owl-carousel owl-theme" id="slider_galerie_produit">
+				{% for galerie in produit_selected.galeries %}
+					{% if galerie.image is not empty %}
+						<div class="item_media_produit">
+							<img class="img-fluid" src="{{ asset (vich_uploader_asset(galerie,'imageFile')) }}" alt="{{galerie.titre}}">
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+</div>

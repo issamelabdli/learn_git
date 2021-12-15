@@ -1,0 +1,16 @@
+{% extends 'Frontend/base.html.twig' %}
+
+{% block seoheader %}
+    {% include 'Frontend/Render/_seoclient.html.twig' with {'client_selected':client_selected} %}
+{% endblock %}
+
+{% block switcher %}
+	{% include 'Frontend/Render/_switcher_client.html.twig' with {'client_selected':client_selected} %}
+{% endblock switcher %}
+
+{% block body %}
+
+	{% include 'Frontend/Evenements/_item_client_selected.html.twig' %}
+
+
+{% endblock body %}

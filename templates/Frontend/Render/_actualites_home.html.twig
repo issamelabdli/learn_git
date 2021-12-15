@@ -1,0 +1,21 @@
+{% if list_actualites is not empty %}
+	<div class="actualites_home">
+		<div class="container">
+			<h2 class="titre_actualites_home">Actualités</h2>
+			<div class="row">
+				<div class="col-lg-1"></div>
+				{% for actu in list_actualites %}
+					<div class="col-lg-5 col-md-6">
+						<div class="item_actualites_home">
+							<h5><a href="{{ path('actualite_selected',{'slug':actu.slug}) }}">{{actu.titre}}</a></h5>
+							<div class="lire_actu">
+								<a href="{{ path('actualite_selected',{'slug':actu.slug}) }}">En savoir plus</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+				<div class="col-lg-1"></div>
+			</div>
+		</div>
+	</div>
+{% endif %}

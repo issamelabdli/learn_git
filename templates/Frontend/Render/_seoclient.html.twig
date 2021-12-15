@@ -1,0 +1,19 @@
+<title>{{client_selected.titre}}</title>
+
+<meta name="title" content="{{client_selected.seoTitre}}" />
+<meta name="description" content="{{client_selected.seoDescription}}" />
+<meta name="keywords" content="{{client_selected.seoKeywords}}" />  
+
+<meta property="og:locale" content="fr_FR"/>
+<meta property="og:site_name" content="https://"/>
+<meta property="og:title" content="{{client_selected.seoTitre}}"/>
+<meta property="og:url" content="{{ absolute_url(path('client_selected',{'event_slug':evenement_selected.slug,'slug':client_selected.slug})) }}"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="{{client_selected.seoDescription}}"/>
+<meta property="og:image" content="{{ absolute_url(asset(vich_uploader_asset(client_selected,'imageFile')))}}"/> 
+ 
+<meta name="twitter:title" content="{{client_selected.seoTitre}}"/>
+<meta name="twitter:url" content="https://"/>
+<meta name="twitter:description" content="{{client_selected.seoDescription}}"/>
+<meta name="twitter:card" content="summary_large_image"/>
+

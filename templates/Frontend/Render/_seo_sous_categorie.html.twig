@@ -1,0 +1,19 @@
+<title>{{sous_categorie_selected.titre}}</title>
+
+<meta name="title" content="{{sous_categorie_selected.seoTitre}}" />
+<meta name="description" content="{{sous_categorie_selected.seoDescription}}" />
+<meta name="keywords" content="{{sous_categorie_selected.seoKeywords}}" />  
+
+<meta property="og:locale" content="fr_FR"/>
+<meta property="og:site_name" content="https://"/>
+<meta property="og:title" content="{{sous_categorie_selected.seoTitre}}"/>
+<meta property="og:url" content="{{ absolute_url(path('sous_categorie_selected',{'cat_slug':categorie_selected.slug,'slug':sous_categorie_selected.slug}))}}"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="{{sous_categorie_selected.seoDescription}}"/>
+<meta property="og:image" content="{{ absolute_url(asset(vich_uploader_asset(sous_categorie_selected,'imageFile')))}}"/> 
+ 
+<meta name="twitter:title" content="{{sous_categorie_selected.seoTitre}}"/>
+<meta name="twitter:url" content="https://"/>
+<meta name="twitter:description" content="{{sous_categorie_selected.seoDescription}}"/>
+<meta name="twitter:card" content="summary_large_image"/>
+

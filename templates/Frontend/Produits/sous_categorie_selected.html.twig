@@ -1,0 +1,16 @@
+{% extends 'Frontend/base.html.twig' %}
+
+{% block seoheader %}
+    {% include 'Frontend/Render/_seo_sous_categorie.html.twig' with {'sous_categorie_selected':sous_categorie_selected} %}
+{% endblock %}
+
+{% block switcher %}
+	{% include 'Frontend/Render/_switcher_sous_categorie.html.twig' with {'sous_categorie_selected':sous_categorie_selected} %}
+{% endblock switcher %}
+
+{% block body %}
+
+	{% include 'Frontend/Produits/_item_sous_categorie_selected.html.twig' %}
+
+
+{% endblock body %}

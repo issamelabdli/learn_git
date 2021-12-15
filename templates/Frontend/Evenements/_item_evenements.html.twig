@@ -1,0 +1,47 @@
+<div class="content_events">
+	<div class="container">
+
+		{% if list_evenements is not empty %}
+
+            {% set collectionSize = 0 %}
+            {% for event in list_evenements %} 
+            {% set collectionSize = collectionSize + 1 %}
+            {% endfor %}
+
+
+            {% set columnCount    = 3 %}
+            {% set i              = 0 %} 
+                 
+            {% for event in list_evenements %}
+
+               
+            {% if i % columnCount == 0  %}
+            <div class="row">
+            {% endif %} 
+
+            {% set i = i + 1 %}  
+
+            	<div class="col-lg-4 col-md-4">
+					<div class="item_event">
+						<a href="{{ path('evenement_selected',{'slug':event.slug}) }}">
+							<img class="img-fluid" src="{{ asset (vich_uploader_asset(event,'imageFile')) }}" alt="{{event.titre}}">
+						</a>
+						<h2><a href="{{ path('evenement_selected',{'slug':event.slug}) }}">{{event.titre}}</a></h2>
+					</div>
+				</div>
+
+            {%  if i % columnCount == 0 or i == collectionSize %}
+                </div>
+            {% endif %}
+
+            {% endfor %}
+ 
+
+        {% else %}
+            <p>
+            	{{"Il n'y a aucune evenement pour l'instant."|trans}}
+            </p>
+        {% endif %}
+
+	</div>
+</div>
